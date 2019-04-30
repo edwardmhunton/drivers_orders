@@ -3,8 +3,15 @@ import React from "react";
 import { MapView } from "./MapView.tsx";
 import { OrderCardList } from "./OrderCardList.tsx";
 
-import orders from "../data/orderdata.json";
-import drivers from "../data/driverdata.json";
+import ordersData from "../data/orderdata.json";
+import driversData from "../data/driverdata.json";
+
+const styles = {
+  display: "flex",
+  width: 1000,
+  height: 500,
+  fontFamily: "Arial, Helvetica, sans-serif"
+};
 
 export class Dashboard extends React.Component {
   constructor(props) {
@@ -13,9 +20,9 @@ export class Dashboard extends React.Component {
 
   render() {
     return (
-      <div className="dashboard">
-        <OrderCardList orders={orders} />
-        <MapView drivers={drivers} />
+      <div style={styles} className="dashboard">
+        <OrderCardList orders={ordersData.orders} />
+        <MapView drivers={driversData.drivers} />
       </div>
     );
   }

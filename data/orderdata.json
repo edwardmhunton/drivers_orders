@@ -3,7 +3,15 @@
     {
       "id": "12345",
       "PickupTime": "1556548991000",
-      "PickupAddress": "51.546520099999995,-0.0367937",
+      "PickupAddress": {
+        "coordinates": "51.546520099999995,-0.0367937",
+        "street_address": {
+          "post_code": "EX203LZ",
+          "address_line_1": "76 Kenworthy Road",
+          "city": "London"
+        }
+      },
+
       "PackageSize": {
         "length": "1000",
         "width": "1000",
@@ -13,7 +21,14 @@
     {
       "id": "678910",
       "PickupTime": "1556548991000",
-      "PickupAddress": "51.546520099999995,-0.0367937",
+      "PickupAddress": {
+        "coordinates": "51.546520099999995,-0.0367937",
+        "street_address": {
+          "post_code": "EX203LZ",
+          "address_line_1": "76 Kenworthy Road",
+          "city": "London"
+        }
+      },
       "PackageSize": {
         "length": "1000",
         "width": "1000",
