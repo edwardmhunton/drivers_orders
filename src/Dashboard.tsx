@@ -1,6 +1,7 @@
 import React from "react";
+import * as R from "ramda";
 
-import { MapView } from "./MapView.tsx";
+import Map from "./MapContainer.tsx";
 import { OrderCardList } from "./OrderCardList.tsx";
 
 import ordersData from "../data/orderdata.json";
@@ -19,10 +20,14 @@ export class Dashboard extends React.Component {
   }
 
   render() {
+    const initialCenter = R.path(
+      ["PickupAddress", "coordinates"],
+      ordersData.orders[0]
+    );
     return (
       <div style={styles} className="dashboard">
         <OrderCardList orders={ordersData.orders} />
-        <MapView drivers={driversData.drivers} />
+        <Map initialCenter={initialCenter} drivers={driversData.drivers} />
       </div>
     );
   }

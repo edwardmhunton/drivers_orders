@@ -1,27 +1,25 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
+const WriteFilePlugin = require("write-file-webpack-plugin");
+
+var path = require("path");
+
 module.exports = {
   context: __dirname + "/src",
   devtool: "inline-source-map",
-  plugins: [
-    new HtmlWebpackPlugin({
-      appMountId: "app",
-      template: "./index.html"
-    })
-  ],
+  plugins: [new WriteFilePlugin()],
+  output: {
+    filename: "bundle.js"
+  },
   entry: {
     javascript: "./main.tsx"
   },
-  mode: "development",
+  mode: "production",
 
-  output: {
-    filename: "bundle.js",
-    path: __dirname + "/public"
-  },
   module: {
     rules: [
       {
-        test: /\.tsx$.ts/,
+        test: /\.tsx$/,
         exclude: /node_modules/,
         use: ["react-hot-loader/webpack", "babel-loader"]
       }

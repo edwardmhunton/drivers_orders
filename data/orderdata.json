@@ -4,7 +4,7 @@
       "id": "12345",
       "PickupTime": "1556548991000",
       "PickupAddress": {
-        "coordinates": "51.546520099999995,-0.0367937",
+        "coordinates": { "lat": "51.546520099999995", "lng": "-0.0367937" },
         "street_address": {
           "post_code": "EX203LZ",
           "address_line_1": "76 Kenworthy Road",
@@ -22,7 +22,7 @@
       "id": "678910",
       "PickupTime": "1556548991000",
       "PickupAddress": {
-        "coordinates": "51.546520099999995,-0.0367937",
+        "coordinates": { "lat": "51.546520099999995", "lng": "-0.0367937" },
         "street_address": {
           "post_code": "EX203LZ",
           "address_line_1": "76 Kenworthy Road",
