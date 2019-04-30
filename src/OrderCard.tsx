@@ -6,11 +6,11 @@ import { AddressField } from "./AddressField.tsx";
 import { Dimensions } from "./Dimensions.tsx";
 
 const styles = {
-  display: "flex",
   flexDirection: "column",
   width: 200,
   height: 100,
-  fontSize: 9
+  fontSize: 9,
+  display: "flex"
 };
 
 export class OrderCard extends React.Component {

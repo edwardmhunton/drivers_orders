@@ -4,9 +4,7 @@ import { OrderCard } from "./OrderCard.tsx";
 
 const styles = {
   display: "flex",
-  flexDirection: "column",
-  width: 200,
-  height: 500
+  flexDirection: "column"
 };
 
 export class OrderCardList extends React.Component {

@@ -3,6 +3,7 @@ import * as R from "ramda";
 
 import Map from "./MapContainer.tsx";
 import { OrderCardList } from "./OrderCardList.tsx";
+import { DriversList } from "./DriversList.tsx";
 
 import ordersData from "../data/orderdata.json";
 import driversData from "../data/driverdata.json";
@@ -12,6 +13,10 @@ const styles = {
   width: 1000,
   height: 500,
   fontFamily: "Arial, Helvetica, sans-serif"
+};
+
+const mapFlex = {
+  display: "flex"
 };
 
 export class Dashboard extends React.Component {
@@ -27,7 +32,10 @@ export class Dashboard extends React.Component {
     return (
       <div style={styles} className="dashboard">
         <OrderCardList orders={ordersData.orders} />
-        <Map initialCenter={initialCenter} drivers={driversData.drivers} />
+        <div style={mapFlex}>
+          <Map initialCenter={initialCenter} />
+        </div>
+        <DriversList drivers={driversData.drivers} />
       </div>
     );
   }
