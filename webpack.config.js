@@ -10,7 +10,7 @@ module.exports = {
     })
   ],
   entry: {
-    javascript: "./main.js"
+    javascript: "./main.tsx"
   },
   mode: "development",
 
@@ -21,10 +21,14 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.tsx$/,
         exclude: /node_modules/,
         use: ["react-hot-loader/webpack", "babel-loader"]
       }
+      // {
+      //   test: /\.json$/,
+      //   use: ["json-loader"]
+      // }
       // {
       //   test: /\.html$/,
       //   use: "file-loader?name=[name].[ext]"
