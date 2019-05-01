@@ -8,12 +8,22 @@ const styles = {
   flexDirection: "column"
 };
 
+const liveDriver = {
+  color: "blue"
+};
+const nonLiveDriver = {
+  color: "red"
+};
+
 export class Driver extends React.Component {
   constructor(props) {
     super(props);
   }
   render() {
     const { driver } = this.props;
-    return <div style={styles}>{`Driver ID: ${driver.id}`}</div>;
+    const mergedStyles = driver.proximity
+      ? Object.assign({}, styles, liveDriver)
+      : Object.assign({}, styles, nonLiveDriver);
+    return <div style={mergedStyles}>{`Driver ID: ${driver.id}`}</div>;
   }
 }

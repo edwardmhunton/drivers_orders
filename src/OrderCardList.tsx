@@ -12,11 +12,18 @@ export class OrderCardList extends React.Component {
     super(props);
   }
   render() {
-    const { orders } = this.props;
+    const { orders, onPress, changeOrderLocation } = this.props;
     return (
       <div style={styles} className="ordercardlist">
         {orders.map((item, index) => {
-          return <OrderCard key={index} order={item} />;
+          return (
+            <OrderCard
+              key={index}
+              order={item}
+              onPress={onPress}
+              changeOrderLocation={changeOrderLocation}
+            />
+          );
         })}
       </div>
     );

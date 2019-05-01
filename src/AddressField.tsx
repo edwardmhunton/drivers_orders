@@ -1,7 +1,31 @@
 import React from "react";
 
-export const AddressField = () => (
-  <form>
-    <input type="text" />
-  </form>
-);
+export class AddressField extends React.Component {
+  constructor(props) {
+    super(props);
+    this.myRef = React.createRef();
+    this.handleBlur = this.handleBlur.bind(this);
+  }
+
+  handleBlur() {
+    const { changeOrderLocation, order } = this.props;
+    changeOrderLocation(order.id, this.myRef.current.value);
+  }
+  render() {
+    const { order } = this.props;
+    return (
+      <form>
+        <input
+          ref={this.myRef}
+          type="text"
+          onBlur={this.handleBlur}
+          defaultValue={
+            order.PickupAddress.coordinates.lat +
+            ", " +
+            order.PickupAddress.coordinates.lng
+          }
+        />
+      </form>
+    );
+  }
+}
