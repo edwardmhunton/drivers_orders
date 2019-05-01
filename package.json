@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "Software Engineer Excercise",
   "scripts": {
-    "start": "webpack-dev-server --hot --inline",
+    "start": "webpack-dev-server --hot --inline --mode development",
+    "build": "webpack --mode production",
     "test": "jest --passWithNoTests",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage --colors"
