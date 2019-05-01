@@ -15,15 +15,9 @@ const nonLiveDriver = {
   color: "red"
 };
 
-export class Driver extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-  render() {
-    const { driver } = this.props;
-    const mergedStyles = driver.proximity
-      ? Object.assign({}, styles, liveDriver)
-      : Object.assign({}, styles, nonLiveDriver);
-    return <div style={mergedStyles}>{`Driver ID: ${driver.id}`}</div>;
-  }
-}
+export const Driver = driver => {
+  const mergedStyles = driver.proximity
+    ? Object.assign({}, styles, liveDriver)
+    : Object.assign({}, styles, nonLiveDriver);
+  return <div style={mergedStyles}>{`Driver ID: ${driver.id}`}</div>;
+};

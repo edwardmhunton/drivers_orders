@@ -3,42 +3,50 @@
     {
       "id": "9823983445",
       "coordinates": { "lat": "51.54473", "lng": " -0.1357" },
-      "proximity": false
+      "proximity": false,
+      "distance": 0
     },
     {
       "id": "8376587365",
       "coordinates": { "lat": "51.57131", "lng": "-0.1048" },
-      "proximity": false
+      "proximity": false,
+      "distance": 0
     },
     {
       "id": "456457568",
       "coordinates": { "lat": "51.57269", "lng": "-0.03923" },
-      "proximity": false
+      "proximity": false,
+      "distance": 0
     },
     {
       "id": "234235457587",
       "coordinates": { "lat": "51.54809", "lng": "-0.01049" },
-      "proximity": false
+      "proximity": false,
+      "distance": 0
     },
     {
       "id": "89234234",
       "coordinates": { "lat": "51.52834", "lng": "-0.00998" },
-      "proximity": false
+      "proximity": false,
+      "distance": 0
     },
     {
       "id": "2354235235345",
       "coordinates": { "lat": "51.50981", "lng": "-0.02843" },
-      "proximity": false
+      "proximity": false,
+      "distance": 0
     },
     {
       "id": "2354235235345",
       "coordinates": { "lat": "51.50105", "lng": "-0.06894" },
-      "proximity": false
+      "proximity": false,
+      "distance": 0
     },
     {
       "id": "2354235235345",
       "coordinates": { "lat": "51.5175", "lng": "-0.1146" },
-      "proximity": false
+      "proximity": false,
+      "distance": 0
     }
   ]
 }

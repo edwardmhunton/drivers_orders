@@ -7,18 +7,12 @@ const styles = {
   flexDirection: "column"
 };
 
-export class DriversList extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-  render() {
-    const { drivers } = this.props;
-    return (
-      <div style={styles} className="driverlist">
-        {drivers.map((item, index) => {
-          return <Driver key={index} driver={item} />;
-        })}
-      </div>
-    );
-  }
-}
+export const DriversList = ({ drivers }) => {
+  return (
+    <div style={styles} className="driverlist">
+      {drivers.map((item, index) => {
+        return <Driver key={index} {...item} />;
+      })}
+    </div>
+  );
+};

@@ -1,0 +1,98 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`the fist test Renders Correctly 1`] = `
+<div
+  className="ordercardlist"
+  style={
+    Object {
+      "display": "flex",
+      "flexDirection": "column",
+    }
+  }
+>
+  <div
+    onClick={[Function]}
+    style={
+      Object {
+        "display": "flex",
+        "flexDirection": "column",
+        "fontSize": 9,
+        "height": 100,
+        "width": 200,
+      }
+    }
+  >
+    <div>
+      Pickup Time: Mon Apr 29 2019
+    </div>
+    <div>
+      Pickup Address (Enter)
+    </div>
+    <form>
+      <input
+        defaultValue="51.5325764, -0.0578597"
+        onBlur={[Function]}
+        type="text"
+      />
+    </form>
+    <div>
+      <div>
+        <div>
+          Package Dimensions
+        </div>
+        <div>
+          W: 1000mm
+        </div>
+        <div>
+          H: 1000mm
+        </div>
+        <div>
+          L: 1000mm
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    onClick={[Function]}
+    style={
+      Object {
+        "display": "flex",
+        "flexDirection": "column",
+        "fontSize": 9,
+        "height": 100,
+        "width": 200,
+      }
+    }
+  >
+    <div>
+      Pickup Time: Mon Apr 29 2019
+    </div>
+    <div>
+      Pickup Address (Enter)
+    </div>
+    <form>
+      <input
+        defaultValue="51.55423, -0.03238"
+        onBlur={[Function]}
+        type="text"
+      />
+    </form>
+    <div>
+      <div>
+        <div>
+          Package Dimensions
+        </div>
+        <div>
+          W: 1000mm
+        </div>
+        <div>
+          H: 1000mm
+        </div>
+        <div>
+          L: 1000mm
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

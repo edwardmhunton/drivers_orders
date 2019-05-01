@@ -38,14 +38,13 @@ export class Dashboard extends React.Component {
     this.selectAnOrder = this.selectAnOrder.bind(this);
     this.targetDrivers = this.targetDrivers.bind(this);
     this.changeOrderLocation = this.changeOrderLocation.bind(this);
-    this.state;
   }
   targetDrivers() {
-    const drivers = this.state.driversData;
-    const order = this.state.currentSelectedOrder;
-    console.log(order.PickupAddress.coordinates.lat);
     this.setState({
-      driversData: getClosestDrivers(drivers, order)
+      driversData: getClosestDrivers(
+        this.state.driversData,
+        this.state.currentSelectedOrder
+      )
     });
   }
 
@@ -53,15 +52,18 @@ export class Dashboard extends React.Component {
     this.setState({ currentSelectedOrder: order }, this.targetDrivers);
   }
 
-  changeOrderLocation(id, coordinates) {
-    let newOrders = this.state.ordersData.map(item => {
+  getNewOrders(originalOrders, id, coordinates) {
+    return originalOrders.map(item => {
       if (item.id === id) {
         item.PickupAddress.coordinates = stringCoordinatesToObject(coordinates);
       }
       return item;
     });
+  }
+
+  changeOrderLocation(id, coordinates) {
     this.setState({
-      ordersData: newOrders
+      ordersData: getNewOrders(this.state.ordersData, id, coordinates)
     });
   }
 
