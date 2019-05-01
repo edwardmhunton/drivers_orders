@@ -30,7 +30,21 @@ export class MapContainer extends React.Component {
       });
     }
   };
-  //<Marker onClick={this.onMarkerClick} name={"Current location"} />
+
+  getMarker(name, location, icon_url) {
+    return (
+      <Marker
+        onClick={this.onMarkerClick}
+        name={name}
+        position={location}
+        icon={{
+          url: icon_url,
+          anchor: new google.maps.Point(32, 32),
+          scaledSize: new google.maps.Size(64, 64)
+        }}
+      />
+    );
+  }
   render() {
     const { google, initialCenter, drivers, currentSelectedOrder } = this.props;
     return (
@@ -42,44 +56,25 @@ export class MapContainer extends React.Component {
           initialCenter={initialCenter}
           onClick={this.onMapClicked}
         >
-          {currentSelectedOrder ? (
-            <Marker
-              onClick={this.onMarkerClick}
-              name={"CURRENT ORDER"}
-              position={currentSelectedOrder.PickupAddress.coordinates}
-              icon={{
-                url: "http://maps.google.com/mapfiles/ms/icons/green-dot.png",
-                anchor: new google.maps.Point(32, 32),
-                scaledSize: new google.maps.Size(64, 64)
-              }}
-            />
-          ) : null}
+          {currentSelectedOrder
+            ? this.getMarker(
+                "CURRENT ORDER",
+                currentSelectedOrder.PickupAddress.coordinates,
+                "http://maps.google.com/mapfiles/ms/icons/green-dot.png"
+              )
+            : null}
           {drivers.map((item, index) => {
-            return item.proximity === false ? (
-              <Marker
-                onClick={this.onMarkerClick}
-                name={item.id}
-                position={item.coordinates}
-                icon={{
-                  url: "http://maps.google.com/mapfiles/ms/icons/red-dot.png",
-                  anchor: new google.maps.Point(32, 32),
-                  scaledSize: new google.maps.Size(64, 64)
-                }}
-                key={index}
-              />
-            ) : (
-              <Marker
-                onClick={this.onMarkerClick}
-                name={item.id}
-                position={item.coordinates}
-                icon={{
-                  url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png",
-                  anchor: new google.maps.Point(32, 32),
-                  scaledSize: new google.maps.Size(64, 64)
-                }}
-                key={index}
-              />
-            );
+            return item.proximity === false
+              ? this.getMarker(
+                  item.id,
+                  item.coordinates,
+                  "http://maps.google.com/mapfiles/ms/icons/red-dot.png"
+                )
+              : this.getMarker(
+                  item.id,
+                  item.coordinates,
+                  "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
+                );
           })}
           <InfoWindow
             marker={this.state.activeMarker}
