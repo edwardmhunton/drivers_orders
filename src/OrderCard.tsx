@@ -8,9 +8,16 @@ import { Dimensions } from "./Dimensions.tsx";
 const styles = {
   flexDirection: "column",
   width: 200,
-  height: 100,
+  height: 200,
   fontSize: 9,
-  display: "flex"
+  display: "flex",
+  color: "grey",
+  backgroundColor: "white"
+};
+
+const selectedStyles = {
+  backgroundColor: "green",
+  color: "white"
 };
 
 export class OrderCard extends React.Component {
@@ -24,14 +31,24 @@ export class OrderCard extends React.Component {
   }
 
   render() {
-    const { order, onPress, changeOrderLocation } = this.props;
+    const { order, onPress, changeOrderLocation, selected } = this.props;
+    console.log("selected" + selected);
     return (
-      <div style={styles} onClick={this.handleClick}>
-        <div>{`Pickup Time: ${getHumanreadableDate(order.PickupTime)}`}</div>
-        <div>Pickup Address (Enter)</div>
-        <AddressField order={order} changeOrderLocation={changeOrderLocation} />
-        <div>
-          <Dimensions {...order.PackageSize} />
+      <div
+        style={selected ? Object.assign({}, styles, selectedStyles) : styles}
+        className={"card"}
+        onClick={this.handleClick}
+      >
+        <div className={"card-body"}>
+          <h5 className={"card-title"}>{`Order ${order.id}`} </h5>
+          <p>{`Pickup Time: ${getHumanreadableDate(order.PickupTime)}`}</p>
+          <AddressField
+            order={order}
+            changeOrderLocation={changeOrderLocation}
+          />
+          <div>
+            <Dimensions {...order.PackageSize} />
+          </div>
         </div>
       </div>
     );

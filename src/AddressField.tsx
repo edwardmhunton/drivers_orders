@@ -14,18 +14,21 @@ export class AddressField extends React.Component {
   render() {
     const { order } = this.props;
     return (
-      <form>
-        <input
-          ref={this.myRef}
-          type="text"
-          onBlur={this.handleBlur}
-          defaultValue={
-            order.PickupAddress.coordinates.lat +
-            ", " +
-            order.PickupAddress.coordinates.lng
-          }
-        />
-      </form>
+      <div>
+        <p>Pickup Address (free text)</p>
+        <form>
+          <input
+            ref={this.myRef}
+            type="text"
+            onBlur={this.handleBlur}
+            defaultValue={
+              order.PickupAddress.coordinates.lat +
+              ", " +
+              order.PickupAddress.coordinates.lng
+            }
+          />
+        </form>
+      </div>
     );
   }
 }

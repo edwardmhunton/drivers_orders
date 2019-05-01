@@ -4,7 +4,8 @@ import { Driver } from "./Driver.tsx";
 
 const styles = {
   display: "flex",
-  flexDirection: "column"
+  flexDirection: "column",
+  marginLeft: 50
 };
 
 export const DriversList = ({ drivers }) => {

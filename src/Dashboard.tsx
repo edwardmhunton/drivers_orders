@@ -73,6 +73,7 @@ export class Dashboard extends React.Component {
         <OrderCardList
           orders={this.state.ordersData}
           onPress={this.selectAnOrder}
+          currentSelectedOrder={this.state.currentSelectedOrder}
           changeOrderLocation={this.changeOrderLocation}
         />
         <div style={mapFlex}>

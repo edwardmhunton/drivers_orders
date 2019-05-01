@@ -7,7 +7,12 @@ const styles = {
   flexDirection: "column"
 };
 
-export const OrderCardList = ({ orders, onPress, changeOrderLocation }) => {
+export const OrderCardList = ({
+  orders,
+  onPress,
+  changeOrderLocation,
+  currentSelectedOrder
+}) => {
   return (
     <div style={styles} className="ordercardlist">
       {orders.map((item, index) => {
@@ -16,6 +21,11 @@ export const OrderCardList = ({ orders, onPress, changeOrderLocation }) => {
             key={index}
             order={item}
             onPress={onPress}
+            selected={
+              !currentSelectedOrder || currentSelectedOrder.id !== item.id
+                ? false
+                : true
+            }
             changeOrderLocation={changeOrderLocation}
           />
         );

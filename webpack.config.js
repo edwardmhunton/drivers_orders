@@ -6,6 +6,7 @@ module.exports = {
   entry: {
     javascript: "./main.tsx"
   },
+  devtool: "inline-source-map",
   context: __dirname + "/src",
   output: {
     path: __dirname + "/dist",
