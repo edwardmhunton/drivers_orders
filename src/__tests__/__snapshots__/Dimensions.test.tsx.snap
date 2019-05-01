@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`the fist test Renders Correctly 1`] = `
+<div>
+  <div>
+    Package Dimensions
+  </div>
+  <div>
+    W: undefinedmm
+  </div>
+  <div>
+    H: undefinedmm
+  </div>
+  <div>
+    L: undefinedmm
+  </div>
+</div>
+`;
