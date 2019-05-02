@@ -1,7 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`the fist test Renders Correctly 1`] = `
+exports[`Driver test Renders Correctly 1`] = `
 <div
+  className="badge badge-secondary"
   style={
     Object {
       "color": "red",
@@ -9,6 +10,8 @@ exports[`the fist test Renders Correctly 1`] = `
       "flexDirection": "column",
       "fontSize": 20,
       "height": 50,
+      "margin": 10,
+      "textAlign": "left",
       "width": 300,
     }
   }

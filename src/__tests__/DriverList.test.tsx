@@ -27,7 +27,7 @@ const driversData = {
   ]
 };
 
-describe("the fist test", () => {
+describe("DriverList test", () => {
   it("Renders Correctly", () => {
     const DriverListComponent = renderer
       .create(<DriversList drivers={driversData.drivers} />)

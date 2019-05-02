@@ -1,16 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`the fist test Renders Correctly 1`] = `
+exports[`DriverList test Renders Correctly 1`] = `
 <div
   className="driverlist"
   style={
     Object {
       "display": "flex",
       "flexDirection": "column",
+      "marginLeft": 50,
     }
   }
 >
   <div
+    className="badge badge-secondary"
     style={
       Object {
         "color": "red",
@@ -18,6 +20,8 @@ exports[`the fist test Renders Correctly 1`] = `
         "flexDirection": "column",
         "fontSize": 20,
         "height": 50,
+        "margin": 10,
+        "textAlign": "left",
         "width": 300,
       }
     }
@@ -25,6 +29,7 @@ exports[`the fist test Renders Correctly 1`] = `
     Driver ID: 9823983445
   </div>
   <div
+    className="badge badge-secondary"
     style={
       Object {
         "color": "red",
@@ -32,6 +37,8 @@ exports[`the fist test Renders Correctly 1`] = `
         "flexDirection": "column",
         "fontSize": 20,
         "height": 50,
+        "margin": 10,
+        "textAlign": "left",
         "width": 300,
       }
     }
@@ -39,6 +46,7 @@ exports[`the fist test Renders Correctly 1`] = `
     Driver ID: 8376587365
   </div>
   <div
+    className="badge badge-secondary"
     style={
       Object {
         "color": "red",
@@ -46,6 +54,8 @@ exports[`the fist test Renders Correctly 1`] = `
         "flexDirection": "column",
         "fontSize": 20,
         "height": 50,
+        "margin": 10,
+        "textAlign": "left",
         "width": 300,
       }
     }

@@ -7,8 +7,8 @@ export const getHumanreadableDate = timestamp => {
 export const stringCoordinatesToObject = coordinates => {
   var coords = coordinates.split(","); // TODO: test format and content of coords is valid
   const newCords = {
-    lat: coords[0],
-    lng: coords[1]
+    lat: coords[0].trim(),
+    lng: coords[1].trim()
   };
 
   return newCords;

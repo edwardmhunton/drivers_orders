@@ -1,11 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`the fist test Renders Correctly 1`] = `
-<form>
-  <input
-    defaultValue="51.5325764, -0.0578597"
-    onBlur={[Function]}
-    type="text"
-  />
-</form>
+exports[`Test AddressField component functionality Renders Correctly 1`] = `
+<div>
+  <p>
+    Pickup Address (free text)
+  </p>
+  <form>
+    <input
+      defaultValue="51.5325764, -0.0578597"
+      onBlur={[Function]}
+      type="text"
+    />
+  </form>
+</div>
 `;

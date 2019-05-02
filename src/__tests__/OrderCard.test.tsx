@@ -2,9 +2,15 @@ import React from "react";
 
 import renderer from "react-test-renderer";
 
+import Enzyme from "enzyme";
+import { shallow, mount } from "enzyme";
+import Adapter from "enzyme-adapter-react-16";
+
+Enzyme.configure({ adapter: new Adapter() });
+
 import { OrderCard } from "../OrderCard";
 
-describe("the fist test", () => {
+describe("OrderCard test", () => {
   const order = {
     id: "12345",
     PickupTime: "1556548991000",
@@ -28,5 +34,15 @@ describe("the fist test", () => {
       .create(<OrderCard order={order} />)
       .toJSON();
     expect(OrderCardComponent).toMatchSnapshot();
+  });
+  it("Calls member method handleClick", () => {
+    const mockCallback = jest.fn(() => {
+      console.log("onPress called");
+    });
+
+    const wrapper = shallow(<OrderCard onPress={mockCallback} order={order} />);
+    const instance = wrapper.instance();
+
+    instance.handleClick();
   });
 });

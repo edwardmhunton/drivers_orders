@@ -44,7 +44,7 @@ const ordersData = {
   ]
 };
 
-describe("the fist test", () => {
+describe("OrderCardList test", () => {
   it("Renders Correctly", () => {
     const OrderCardListComponent = renderer
       .create(<OrderCardList orders={ordersData.orders} />)

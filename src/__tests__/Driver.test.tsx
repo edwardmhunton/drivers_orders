@@ -4,7 +4,7 @@ import renderer from "react-test-renderer";
 
 import { Driver } from "../Driver";
 
-describe("the fist test", () => {
+describe("Driver test", () => {
   const driver = {
     id: "8376587365",
     coordinates: { lat: "51.57131", lng: "-0.1048" },

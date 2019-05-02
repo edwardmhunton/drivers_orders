@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`the fist test Renders Correctly 1`] = `
+exports[`Dimensions test Renders Correctly 1`] = `
 <div>
   <div>
     Package Dimensions

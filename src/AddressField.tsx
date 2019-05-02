@@ -5,11 +5,15 @@ export class AddressField extends React.Component {
     super(props);
     this.myRef = React.createRef();
     this.handleBlur = this.handleBlur.bind(this);
+    this.getRefValue = this.getRefValue.bind(this);
   }
 
   handleBlur() {
     const { changeOrderLocation, order } = this.props;
-    changeOrderLocation(order.id, this.myRef.current.value);
+    changeOrderLocation(order.id, this.getRefValue());
+  }
+  getRefValue() {
+    return this.myRef.current.value;
   }
   render() {
     const { order } = this.props;
