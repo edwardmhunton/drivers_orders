@@ -31,7 +31,7 @@ export class MapContainer extends React.Component {
     }
   };
 
-  getMarker(name, location, icon_url) {
+  getMarker(name, location, icon_url, index) {
     return (
       <Marker
         onClick={this.onMarkerClick}
@@ -42,6 +42,7 @@ export class MapContainer extends React.Component {
           anchor: new google.maps.Point(32, 32),
           scaledSize: new google.maps.Size(64, 64)
         }}
+        key={!index ? undefined : index}
       />
     );
   }
@@ -68,12 +69,14 @@ export class MapContainer extends React.Component {
               ? this.getMarker(
                   item.id,
                   item.coordinates,
-                  "http://maps.google.com/mapfiles/ms/icons/red-dot.png"
+                  "http://maps.google.com/mapfiles/ms/icons/red-dot.png",
+                  index
                 )
               : this.getMarker(
                   item.id,
                   item.coordinates,
-                  "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
+                  "http://maps.google.com/mapfiles/ms/icons/blue-dot.png",
+                  index
                 );
           })}
           <InfoWindow
