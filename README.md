@@ -11,7 +11,7 @@
 - make sure the requirements above are met
 - clone this repo
 - run `yarn` to install dependencies
-- run `yarn start` to run the app with dev server - app will be running at http://localhost:4000/dist/
-- run `yarn build` to build the app - bundle.js generated in /dist folder
+- run `yarn start` to run the app with dev server - app will be running at http://localhost:4000
+- run `yarn build` to build the app - bundle.js and index.html are generated in '/dist' folder
 - run `yarn test` to run tests
 - run `yarn test:coverage` to review test coverage
