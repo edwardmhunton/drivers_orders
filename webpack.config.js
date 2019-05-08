@@ -20,13 +20,13 @@ module.exports = {
       inject: false
     })
   ],
-
+  //, "ts-loader"
   module: {
     rules: [
       {
-        test: /\.tsx$/,
+        test: /\.(tsx|ts)$/,
         exclude: /node_modules/,
-        use: ["react-hot-loader/webpack", "babel-loader"]
+        use: ["react-hot-loader/webpack", "babel-loader", "ts-loader"]
       },
       {
         test: /\.(css|scss)$/,

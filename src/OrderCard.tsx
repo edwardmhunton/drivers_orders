@@ -22,12 +22,25 @@ const styles = {
   backgroundColor: "white"
 };
 
+interface Props {
+  order?: {
+    PackageSize: {
+      coordinates: object;
+    };
+    PickupTime: string;
+    id: number;
+  };
+  changeOrderLocation: ({}) => {};
+  onPress: ({}) => {};
+  selected: boolean;
+}
+
 const selectedStyles = {
   backgroundColor: "#03E64D",
   color: "white"
 };
 
-export class OrderCard extends React.Component {
+export class OrderCard extends React.Component<Props> {
   constructor(props) {
     super(props);
     this.handleClick = this.handleClick.bind(this);

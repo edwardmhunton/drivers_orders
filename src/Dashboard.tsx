@@ -18,7 +18,11 @@ const mapFlex = {
   display: "flex"
 };
 
-export class Dashboard extends React.Component {
+interface Props {}
+
+interface State {}
+
+export class Dashboard extends React.Component<Props, State> {
   state = {
     currentSelectedOrder: undefined,
     driversData: driversData.drivers,

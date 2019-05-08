@@ -31,23 +31,24 @@ export class MapContainer extends React.Component {
     }
   };
 
-  getMarker(name, location, icon_url, index) {
+  // anchor: new google.maps.Point(32, 32),
+  // scaledSize: new google.maps.Size(64, 64)
+
+  getMarker(name, location, icon_url, index?) {
     return (
       <Marker
         onClick={this.onMarkerClick}
         name={name}
         position={location}
         icon={{
-          url: icon_url,
-          anchor: new google.maps.Point(32, 32),
-          scaledSize: new google.maps.Size(64, 64)
+          url: icon_url
         }}
         key={!index ? undefined : index}
       />
     );
   }
   render() {
-    const { google, initialCenter, drivers, currentSelectedOrder } = this.props;
+    const { initialCenter, drivers, currentSelectedOrder } = this.props;
     return (
       <div style={styles}>
         <Map

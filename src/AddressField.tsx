@@ -1,6 +1,13 @@
 import React from "react";
 
-export class AddressField extends React.Component {
+interface Props {
+  changeOrderLocation: number;
+  order: any;
+}
+
+interface State {}
+
+export class AddressField extends React.Component<Props, State> {
   constructor(props) {
     super(props);
     this.myRef = React.createRef();
