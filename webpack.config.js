@@ -27,6 +27,37 @@ module.exports = {
         test: /\.tsx$/,
         exclude: /node_modules/,
         use: ["react-hot-loader/webpack", "babel-loader"]
+      },
+      {
+        test: /\.(css|scss)$/,
+        use: [
+          {
+            loader: "file-loader",
+            options: {
+              name: "bundle.css"
+            }
+          },
+          { loader: "extract-loader" },
+          { loader: "css-loader" },
+          {
+            loader: "sass-loader",
+            options: {
+              includePaths: ["./node_modules"]
+            }
+          }
+        ]
+      },
+      {
+        test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+        use: [
+          {
+            loader: "file-loader",
+            options: {
+              name: "[name].[ext]",
+              outputPath: "fonts/"
+            }
+          }
+        ]
       }
     ]
   },

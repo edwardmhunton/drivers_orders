@@ -1,6 +1,7 @@
 import React from "react";
 
 import { Driver } from "./Driver.tsx";
+import { ListItem } from "@material-ui/core";
 
 const styles = {
   display: "flex",
@@ -12,7 +13,13 @@ export const DriversList = ({ drivers }) => {
   return (
     <div style={styles} className="driverlist">
       {drivers.map((item, index) => {
-        return <Driver key={index} {...item} />;
+        return (
+          <div>
+            <ListItem key={index}>
+              <Driver key={index} {...item} />
+            </ListItem>
+          </div>
+        );
       })}
     </div>
   );

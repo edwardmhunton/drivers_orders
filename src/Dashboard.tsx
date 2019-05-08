@@ -10,14 +10,9 @@ import { getClosestDrivers } from "./utils/index.ts";
 import ordersData from "../data/orderdata.json";
 import driversData from "../data/driverdata.json";
 
-import { stringCoordinatesToObject } from "./utils/index.ts";
+import { TypoGraphy, Grid } from "@material-ui/core";
 
-const styles = {
-  display: "flex",
-  width: 1000,
-  height: 500,
-  fontFamily: "Arial, Helvetica, sans-serif"
-};
+import { stringCoordinatesToObject } from "./utils/index.ts";
 
 const mapFlex = {
   display: "flex"
@@ -69,7 +64,17 @@ export class Dashboard extends React.Component {
 
   render() {
     return (
-      <div style={styles} className="dashboard">
+      <Grid
+        container
+        spacing={40}
+        className="dashboard"
+        item
+        xs
+        container
+        direction="row"
+        justify="space-evenly"
+        alignItems="flex-start"
+      >
         <OrderCardList
           orders={this.state.ordersData}
           onPress={this.selectAnOrder}
@@ -84,7 +89,7 @@ export class Dashboard extends React.Component {
           />
         </div>
         <DriversList drivers={this.state.driversData} />
-      </div>
+      </Grid>
     );
   }
 }

@@ -1,10 +1,12 @@
 import React from "react";
 
 import { OrderCard } from "./OrderCard.tsx";
+import { List, ListItem } from "@material-ui/core";
 
 const styles = {
   display: "flex",
-  flexDirection: "column"
+  flexDirection: "column",
+  alignItems: "flex-start"
 };
 
 export const OrderCardList = ({
@@ -14,22 +16,26 @@ export const OrderCardList = ({
   currentSelectedOrder
 }) => {
   return (
-    <div style={styles} className="ordercardlist">
+    <List style={styles} className="ordercardlist">
       {orders.map((item, index) => {
         return (
-          <OrderCard
-            key={index}
-            order={item}
-            onPress={onPress}
-            selected={
-              !currentSelectedOrder || currentSelectedOrder.id !== item.id
-                ? false
-                : true
-            }
-            changeOrderLocation={changeOrderLocation}
-          />
+          <div>
+            <ListItem key={index}>
+              <OrderCard
+                key={index}
+                order={item}
+                onPress={onPress}
+                selected={
+                  !currentSelectedOrder || currentSelectedOrder.id !== item.id
+                    ? false
+                    : true
+                }
+                changeOrderLocation={changeOrderLocation}
+              />
+            </ListItem>
+          </div>
         );
       })}
-    </div>
+    </List>
   );
 };

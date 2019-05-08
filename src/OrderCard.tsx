@@ -1,6 +1,14 @@
 import React from "react";
 
 import { getHumanreadableDate } from "./utils/index.ts";
+import {
+  Card,
+  CardActionArea,
+  CardActions,
+  CardContent,
+  CardMedia,
+  Typography
+} from "@material-ui/core";
 
 import { AddressField } from "./AddressField.tsx";
 import { Dimensions } from "./Dimensions.tsx";
@@ -8,7 +16,6 @@ import { Dimensions } from "./Dimensions.tsx";
 const styles = {
   flexDirection: "column",
   width: 200,
-  height: 200,
   fontSize: 9,
   display: "flex",
   color: "grey",
@@ -16,7 +23,7 @@ const styles = {
 };
 
 const selectedStyles = {
-  backgroundColor: "green",
+  backgroundColor: "#03E64D",
   color: "white"
 };
 
@@ -32,25 +39,33 @@ export class OrderCard extends React.Component {
 
   render() {
     const { order, onPress, changeOrderLocation, selected } = this.props;
-    console.log("selected" + selected);
     return (
-      <div
+      <Card
         style={selected ? Object.assign({}, styles, selectedStyles) : styles}
         className={"card"}
         onClick={this.handleClick}
       >
-        <div className={"card-body"}>
-          <h5 className={"card-title"}>{`Order ${order.id}`} </h5>
-          <p>{`Pickup Time: ${getHumanreadableDate(order.PickupTime)}`}</p>
-          <AddressField
-            order={order}
-            changeOrderLocation={changeOrderLocation}
-          />
-          <div>
-            <Dimensions {...order.PackageSize} />
-          </div>
-        </div>
-      </div>
+        <CardActionArea>
+          <CardContent>
+            <Typography gutterBottom variant="h6" component="h2">
+              {`Order ${order.id}`}{" "}
+            </Typography>
+            <Typography variant="subtitle2">Pickup Time:</Typography>
+            <Typography variant="body1">
+              {getHumanreadableDate(order.PickupTime)}
+            </Typography>
+            <Typography variant="subtitle2">
+              <AddressField
+                order={order}
+                changeOrderLocation={changeOrderLocation}
+              />
+            </Typography>
+            <Typography variant="subtitle2">
+              <Dimensions {...order.PackageSize} />
+            </Typography>
+          </CardContent>
+        </CardActionArea>
+      </Card>
     );
   }
 }

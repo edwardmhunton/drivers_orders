@@ -1,5 +1,7 @@
 import React from "react";
 
+import { Typography, Card } from "@material-ui/core";
+
 const styles = {
   width: 300,
   height: 50,
@@ -11,10 +13,10 @@ const styles = {
 };
 
 const liveDriver = {
-  color: "blue"
+  color: "#6991FD"
 };
 const nonLiveDriver = {
-  color: "red"
+  color: "#FD7467"
 };
 
 export const Driver = driver => {
@@ -22,9 +24,8 @@ export const Driver = driver => {
     ? Object.assign({}, styles, liveDriver)
     : Object.assign({}, styles, nonLiveDriver);
   return (
-    <div
-      style={mergedStyles}
-      className={"badge badge-secondary"}
-    >{`Driver ID: ${driver.id}`}</div>
+    <Card className={"badge badge-secondary"}>
+      <Typography style={mergedStyles}>{`Driver ID: ${driver.id}`}</Typography>
+    </Card>
   );
 };
