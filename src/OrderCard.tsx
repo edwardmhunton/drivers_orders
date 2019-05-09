@@ -20,19 +20,26 @@ const styles = {
   display: "flex",
   color: "grey",
   backgroundColor: "white"
-};
+} as React.CSSProperties;
 
 interface Props {
-  order?: {
+  order: {
     PackageSize: {
-      coordinates: object;
+      width: string;
+      height: string;
+      length: string;
     };
     PickupTime: string;
-    id: number;
+    id: string;
+    PickupAddress: {
+      street_address: object;
+      coordinates: { lat: string; lng: string };
+    };
   };
-  changeOrderLocation: ({}) => {};
+  changeOrderLocation: () => {};
   onPress: ({}) => {};
   selected: boolean;
+  key: number;
 }
 
 const selectedStyles = {
@@ -51,12 +58,13 @@ export class OrderCard extends React.Component<Props> {
   }
 
   render() {
-    const { order, onPress, changeOrderLocation, selected } = this.props;
+    const { order, onPress, changeOrderLocation, selected, key } = this.props;
     return (
       <Card
         style={selected ? Object.assign({}, styles, selectedStyles) : styles}
         className={"card"}
         onClick={this.handleClick}
+        key={key}
       >
         <CardActionArea>
           <CardContent>

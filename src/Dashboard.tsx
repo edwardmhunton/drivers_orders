@@ -10,7 +10,7 @@ import { getClosestDrivers } from "./utils/index.ts";
 import ordersData from "../data/orderdata.json";
 import driversData from "../data/driverdata.json";
 
-import { TypoGraphy, Grid } from "@material-ui/core";
+import Grid from "@material-ui/core/Grid";
 
 import { stringCoordinatesToObject } from "./utils/index.ts";
 
@@ -18,25 +18,50 @@ const mapFlex = {
   display: "flex"
 };
 
+interface Driver {
+  id: string;
+  coordinates: { lat: string; lng: string };
+  proximity: boolean;
+  distance: number;
+}
+interface Order {
+  PackageSize: {
+    width: string;
+    height: string;
+    length: string;
+  };
+  PickupTime: string;
+  id: string;
+  PickupAddress: {
+    street_address: object;
+    coordinates: { lat: string; lng: string };
+  };
+}
+
 interface Props {}
 
-interface State {}
+interface State {
+  driversData: Array<Driver>;
+  ordersData: Array<Order>;
+  currentSelectedOrder?: Order;
+  initialCenter: object;
+}
 
 export class Dashboard extends React.Component<Props, State> {
-  state = {
-    currentSelectedOrder: undefined,
-    driversData: driversData.drivers,
-    ordersData: ordersData.orders,
-    initialCenter: R.path(
-      ["PickupAddress", "coordinates"],
-      ordersData.orders[0]
-    )
-  };
   constructor(props) {
     super(props);
     this.selectAnOrder = this.selectAnOrder.bind(this);
     this.targetDrivers = this.targetDrivers.bind(this);
     this.changeOrderLocation = this.changeOrderLocation.bind(this);
+    this.state = {
+      currentSelectedOrder: undefined,
+      driversData: driversData.drivers,
+      ordersData: ordersData.orders,
+      initialCenter: R.path(
+        ["PickupAddress", "coordinates"],
+        ordersData.orders[0]
+      )
+    };
   }
   targetDrivers() {
     this.setState({
@@ -62,14 +87,13 @@ export class Dashboard extends React.Component<Props, State> {
 
   changeOrderLocation(id, coordinates) {
     this.setState({
-      ordersData: getNewOrders(this.state.ordersData, id, coordinates)
+      ordersData: this.getNewOrders(this.state.ordersData, id, coordinates)
     });
   }
 
   render() {
     return (
       <Grid
-        container
         spacing={40}
         className="dashboard"
         item

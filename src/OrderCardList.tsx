@@ -9,14 +9,27 @@ const styles = {
   flexDirection: "column",
   alignItems: "flex-start"
 } as React.CSSProperties;
-//extends WithStyles<typeof styles>
+
+interface Order {
+  PackageSize: {
+    width: string;
+    height: string;
+    length: string;
+  };
+  PickupTime: string;
+  id: string;
+  PickupAddress: {
+    street_address: object;
+    coordinates: { lat: string; lng: string };
+  };
+}
 
 interface Props {
-  orders: Array<object>;
-  changeOrderLocation: () => {};
+  orders: Array<Order>;
+  changeOrderLocation: any;
   currentSelectedOrder?: { id: string };
 
-  onPress: () => {};
+  onPress: any;
 }
 
 interface State {}
@@ -29,9 +42,9 @@ export const OrderCardList = ({
 }: Props) => {
   return (
     <List style={styles} className="ordercardlist">
-      {orders.map((item: { id: string }, index) => {
+      {orders.map((order: Order, index: number) => {
         const selected =
-          !currentSelectedOrder || currentSelectedOrder.id !== item.id
+          !currentSelectedOrder || currentSelectedOrder.id !== order.id
             ? false
             : true;
         return (
@@ -39,10 +52,10 @@ export const OrderCardList = ({
             <ListItem key={index}>
               <OrderCard
                 key={index}
-                order={item}
+                order={order}
                 onPress={onPress}
                 selected={
-                  !currentSelectedOrder || currentSelectedOrder.id !== item.id
+                  !currentSelectedOrder || currentSelectedOrder.id !== order.id
                     ? false
                     : true
                 }

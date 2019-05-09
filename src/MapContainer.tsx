@@ -1,5 +1,11 @@
-import React, { Component } from "react";
-import { Map, GoogleApiWrapper, InfoWindow, Marker } from "google-maps-react";
+import React from "react";
+import {
+  Map,
+  GoogleApiWrapper,
+  InfoWindow,
+  Marker,
+  google
+} from "google-maps-react";
 
 const styles = {
   width: 800,
@@ -7,7 +13,33 @@ const styles = {
   display: "flex"
 };
 
-export class MapContainer extends React.Component {
+export interface GoogleApiWrapperProps {
+  google: google;
+}
+
+interface Driver {
+  id: string;
+  coordinates: object;
+  proximity: boolean;
+  distance: number;
+}
+
+interface Props {
+  initialCenter: Array<object>;
+  drivers: Array<Driver>;
+  currentSelectedOrder?: {
+    PackageSize: {
+      coordinates: object;
+    };
+    PickupTime: string;
+    id: number;
+    PickupAddress: {
+      coordinates: object;
+    };
+  };
+}
+
+export class MapContainer extends React.Component<Props> {
   state = {
     showingInfoWindow: true, //Hides or the shows the infoWindow
     activeMarker: {}, //Shows the active marker upon click
@@ -49,6 +81,8 @@ export class MapContainer extends React.Component {
   }
   render() {
     const { initialCenter, drivers, currentSelectedOrder } = this.props;
+    type ITEM = { id: number; proximity: number; coordinates: object };
+
     return (
       <div style={styles}>
         <Map
@@ -65,17 +99,17 @@ export class MapContainer extends React.Component {
                 "http://maps.google.com/mapfiles/ms/icons/green-dot.png"
               )
             : null}
-          {drivers.map((item, index) => {
-            return item.proximity === false
+          {drivers.map((driver: Driver, index: number) => {
+            return driver.proximity === false
               ? this.getMarker(
-                  item.id,
-                  item.coordinates,
+                  driver.id,
+                  driver.coordinates,
                   "http://maps.google.com/mapfiles/ms/icons/red-dot.png",
                   index
                 )
               : this.getMarker(
-                  item.id,
-                  item.coordinates,
+                  driver.id,
+                  driver.coordinates,
                   "http://maps.google.com/mapfiles/ms/icons/blue-dot.png",
                   index
                 );

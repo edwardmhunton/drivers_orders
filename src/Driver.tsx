@@ -19,12 +19,19 @@ const nonLiveDriver = {
   color: "#FD7467"
 };
 
-export const Driver = driver => {
+interface Driver {
+  id: string;
+  coordinates: { lat: string; lng: string };
+  proximity: boolean;
+  distance: number;
+}
+
+export const Driver = (driver: Driver, key: number) => {
   const mergedStyles = driver.proximity
     ? Object.assign({}, styles, liveDriver)
     : Object.assign({}, styles, nonLiveDriver);
   return (
-    <Card className={"badge badge-secondary"}>
+    <Card key={key} className={"badge badge-secondary"}>
       <Typography style={mergedStyles}>{`Driver ID: ${driver.id}`}</Typography>
     </Card>
   );

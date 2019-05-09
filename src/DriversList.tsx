@@ -7,16 +7,27 @@ const styles = {
   display: "flex",
   flexDirection: "column",
   marginLeft: 50
-};
+} as React.CSSProperties;
 
-export const DriversList = ({ drivers }) => {
+interface Driver {
+  id: string;
+  coordinates: { lat: string; lng: string };
+  proximity: boolean;
+  distance: number;
+}
+
+interface Props {
+  drivers: Array<Driver>;
+}
+
+export const DriversList = ({ drivers }: Props) => {
   return (
     <div style={styles} className="driverlist">
-      {drivers.map((item, index) => {
+      {drivers.map((driver: Driver, index: number) => {
         return (
           <div>
             <ListItem key={index}>
-              <Driver key={index} {...item} />
+              <Driver key={index} {...driver} />
             </ListItem>
           </div>
         );

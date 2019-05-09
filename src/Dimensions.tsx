@@ -1,6 +1,12 @@
 import React from "react";
 
-export const Dimensions = dimensions => {
+interface Dimensions {
+  width: string;
+  height: string;
+  length: string;
+}
+
+export const Dimensions = (dimensions: Dimensions) => {
   return (
     <div>
       <div>Package Dimensions</div>
