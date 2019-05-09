@@ -58,7 +58,7 @@ export class Dashboard extends React.Component {
 
   changeOrderLocation(id, coordinates) {
     this.setState({
-      ordersData: getNewOrders(this.state.ordersData, id, coordinates)
+      ordersData: this.getNewOrders(this.state.ordersData, id, coordinates)
     });
   }
 
