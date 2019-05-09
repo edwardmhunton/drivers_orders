@@ -42,7 +42,7 @@ export class MapContainer extends React.Component {
           anchor: new google.maps.Point(32, 32),
           scaledSize: new google.maps.Size(64, 64)
         }}
-        key={!index ? undefined : index}
+        key={!index ? 0 : index}
       />
     );
   }

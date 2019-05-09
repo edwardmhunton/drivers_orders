@@ -14,11 +14,9 @@ export const DriversList = ({ drivers }) => {
     <div style={styles} className="driverlist">
       {drivers.map((item, index) => {
         return (
-          <div>
-            <ListItem key={index}>
-              <Driver key={index} {...item} />
-            </ListItem>
-          </div>
+          <ListItem key={index}>
+            <Driver key={index} {...item} />
+          </ListItem>
         );
       })}
     </div>

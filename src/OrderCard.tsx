@@ -38,12 +38,13 @@ export class OrderCard extends React.Component {
   }
 
   render() {
-    const { order, onPress, changeOrderLocation, selected } = this.props;
+    const { order, onPress, changeOrderLocation, selected, k } = this.props;
     return (
       <Card
         style={selected ? Object.assign({}, styles, selectedStyles) : styles}
         className={"card"}
         onClick={this.handleClick}
+        key={k}
       >
         <CardActionArea>
           <CardContent>

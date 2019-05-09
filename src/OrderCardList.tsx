@@ -19,21 +19,19 @@ export const OrderCardList = ({
     <List style={styles} className="ordercardlist">
       {orders.map((item, index) => {
         return (
-          <div>
-            <ListItem key={index}>
-              <OrderCard
-                key={index}
-                order={item}
-                onPress={onPress}
-                selected={
-                  !currentSelectedOrder || currentSelectedOrder.id !== item.id
-                    ? false
-                    : true
-                }
-                changeOrderLocation={changeOrderLocation}
-              />
-            </ListItem>
-          </div>
+          <ListItem key={index}>
+            <OrderCard
+              k={index}
+              order={item}
+              onPress={onPress}
+              selected={
+                !currentSelectedOrder || currentSelectedOrder.id !== item.id
+                  ? false
+                  : true
+              }
+              changeOrderLocation={changeOrderLocation}
+            />
+          </ListItem>
         );
       })}
     </List>
