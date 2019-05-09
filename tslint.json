@@ -1,0 +1,8 @@
+{
+  "defaultSeverity": "error",
+  "extends": ["tslint-eslint-rules"],
+  "jsRules": {},
+  "rules": {},
+  "rulesDirectory": [],
+  "arrow-parens": [true, "ban-single-arg-parens"]
+}

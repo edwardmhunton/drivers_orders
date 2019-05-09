@@ -1,9 +1,30 @@
 import React from "react";
 
-export class AddressField extends React.Component {
+interface Props {
+  changeOrderLocation: (a: string, b?: string) => {};
+  order: {
+    PackageSize: {
+      width: string;
+      height: string;
+      length: string;
+    };
+    PickupTime: string;
+    id: string;
+    PickupAddress: {
+      street_address: object;
+      coordinates: { lat: string; lng: string };
+    };
+  };
+}
+
+interface State {}
+
+export class AddressField extends React.Component<Props, State> {
+  //state = { myRef: createRef<HTMLDivElement> };
+  private myRef = React.createRef<HTMLInputElement>();
   constructor(props) {
     super(props);
-    this.myRef = React.createRef();
+
     this.handleBlur = this.handleBlur.bind(this);
     this.getRefValue = this.getRefValue.bind(this);
   }
@@ -13,7 +34,9 @@ export class AddressField extends React.Component {
     changeOrderLocation(order.id, this.getRefValue());
   }
   getRefValue() {
-    return this.myRef.current.value;
+    if (this.myRef.current) {
+      return this.myRef.current.value;
+    }
   }
   render() {
     const { order } = this.props;
