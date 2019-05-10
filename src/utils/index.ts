@@ -4,12 +4,26 @@ export const getHumanreadableDate = timestamp => {
   return new Date(parseInt(timestamp)).toDateString();
 };
 
+export const validCoords = coordsString => {
+  return !isNaN(parseFloat(coordsString)) && coordsString.split(".").length < 3;
+};
+
 export const stringCoordinatesToObject = coordinates => {
-  var coords = coordinates.split(","); // TODO: test format and content of coords is valid
-  const newCords = {
-    lat: coords[0].trim(),
-    lng: coords[1].trim()
-  };
+  const coords = coordinates.split(",").map(item => {
+    return item.trim();
+  });
+  let newCords = {};
+  if (coords.length === 2 && validCoords(coords[0]) && validCoords(coords[1])) {
+    newCords = {
+      lat: coords[0],
+      lng: coords[1]
+    };
+  } else {
+    newCords = {
+      lat: "0",
+      lng: "0"
+    };
+  }
 
   return newCords;
 };

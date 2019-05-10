@@ -4,7 +4,8 @@ import {
   getHumanreadableDate,
   sortDrivers,
   stringCoordinatesToObject,
-  getClosestDrivers
+  getClosestDrivers,
+  validCoords
 } from "../utils";
 
 const unsortedDrivers = [
@@ -105,12 +106,38 @@ describe("the fist test", () => {
       lng: "-27.00000"
     });
   });
-  it("Should return coords passed as a string as an object", () => {
-    expect(stringCoordinatesToObject("51.0000, -27.00000")).toEqual({
-      lat: "51.0000",
-      lng: "-27.00000"
-    });
+
+  it("Should determin if string is a valid float for the coords", () => {
+    expect(validCoords("51.0000")).toEqual(true);
   });
+  it("Should determin if string is a valid float for the coords", () => {
+    expect(validCoords("51.0.000")).toEqual(false);
+  });
+  it("Should determin if string is a valid float for the coords", () => {
+    expect(validCoords(",")).toEqual(false);
+  });
+  it("Should determin if string is a valid float for the coords", () => {
+    expect(validCoords("0")).toEqual(true);
+  });
+  it("Should determin if string is a valid float for the coords", () => {
+    expect(validCoords("39487659346")).toEqual(true);
+  });
+  it("Should determin if string is a valid float for the coords", () => {
+    expect(validCoords("true")).toEqual(false);
+  });
+  it("Should determin if string is a valid float for the coords", () => {
+    expect(validCoords("false")).toEqual(false);
+  });
+  it("Should determin if string is a valid float for the coords", () => {
+    expect(validCoords("some coords")).toEqual(false);
+  });
+  it("Should determin if string is a valid float for the coords", () => {
+    expect(validCoords(" ")).toEqual(false);
+  });
+  it("Should determin if string is a valid float for the coords", () => {
+    expect(validCoords("rtywrthrtehtutyhsfbs.sdfdsfsdfsdf")).toEqual(false);
+  });
+
   it("Should except and array of drivers and an order and return the drivers with the value of proximity set to 'true'", () => {
     expect(getClosestDrivers(unsortedDrivers, order)).toEqual(closestDrivers);
   });
